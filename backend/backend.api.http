@@ -1,0 +1,52 @@
+### Base URL
+@baseUrl = http://localhost:5000/api
+
+### 1. Register an employee
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Alice Counselor",
+  "email": "alice@crm.com",
+  "password": "Password123!"
+}
+
+### 2. Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "alice@crm.com",
+  "password": "Password123!"
+}
+
+### 3. Submit a public enquiry (no auth required)
+POST {{baseUrl}}/leads/public
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "+1234567890",
+  "courseInterest": "Computer Science",
+  "message": "Interested in CS program"
+}
+
+### 4. Get unclaimed leads (auth required)
+GET {{baseUrl}}/leads/unclaimed?page=1&limit=10
+Authorization: Bearer <insert-jwt-token-here>
+
+### 5. Claim a lead (auth required)
+POST {{baseUrl}}/leads/<LEAD_ID>/claim
+Authorization: Bearer <insert-jwt-token-here>
+
+### 6. Get my claimed leads (auth required)
+GET {{baseUrl}}/leads/my?page=1&limit=10&search=John
+Authorization: Bearer <insert-jwt-token-here>
+
+### 7. Release a claimed lead (auth required, owner only)
+POST {{baseUrl}}/leads/<LEAD_ID>/release
+Authorization: Bearer <insert-jwt-token-here>
+
+### 8. Health check
+GET {{baseUrl}}/health

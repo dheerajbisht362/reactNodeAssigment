@@ -1,0 +1,10 @@
+{
+  "name": "fastor-mobile-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run --prefix frontend build",
+    "dev": "npm run --prefix frontend dev",
+    "start": "npm run --prefix frontend start"
+  }
+}

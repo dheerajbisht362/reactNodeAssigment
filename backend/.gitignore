@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+alice-token.txt
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+.DS_Store
